@@ -54,32 +54,21 @@ let newBank = [];
 
 // While loop that accesses a random quip and then pushes that random quip into the newBank variable
 function firstLoop() {
-    // for (let i = 0; i < 24; i++) {
     while (newBank.length < 24) {
-
         // Create random integer between 0 and the length of the bank, minus 1
         const randomInt = Math.floor(Math.random() * (bank.length - 1));
 
         // Create a randomQuip by using the slice method on the bank array with the start index of the randomInt and the end of randomInt plus 1
         const quipSlice = bank.slice(randomInt, randomInt + 1);
         const randomQuip = quipSlice[0];
-        console.log(randomQuip, randomInt);
-
-
-        // ----------------------
-        // Now I need to figure out how to get the loop to repeat until the length of newBank is 24
-        // ----------------------
-
 
         // If the randomQuip is not found in the newBank array, push it to newBank
         if (newBank.indexOf(randomQuip) === -1) {
             // Push that randomQuip to the newBank array 
             newBank.push(randomQuip);
-            console.log(newBank);
-            console.log(' ')
         }
     }
-    console.log(newBank.length);
+    console.log(newBank);
 }
 
 // For loop that appends the quips into the HTML
@@ -95,18 +84,11 @@ function appendQuips() {
 function buttonClick() {
     // ----------- Need logic to clear board on button click -----------
     for (let i = 0; i < 24; ++i) {
-        // const nbQuip = newBank[i];
-        // console.log(nbQuip);
         document.getElementById(`sq${i}`).innerHTML = '';
     }
+
     firstLoop();
     appendQuips();
 };
-
-// ----------- stuff -----------
-// ----------- stuff -----------
-// ----------- stuff -----------
-
-
 
 // Integrate printing to a pdf
