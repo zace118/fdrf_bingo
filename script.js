@@ -100,6 +100,6 @@ function buttonClick() {
     appendQuips();
 };
 
-buttonClick();
+// buttonClick();
 
 // Integrate printing to a pdf
