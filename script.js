@@ -48,12 +48,11 @@ const bank = [
     'Zach does his Aaron Neville impression',
     'Donald does his Aaron Neville impression',
     'Donald does his Neil Diamond impression',
-]
-
+];
 let newBank = [];
 
 
-// Function that grabs the elements creates a random number, uses that random number as the index in a for loop to access a random quip and then pushes that random quip into the newBank variable
+// While loop that accesses a random quip and then pushes that random quip into the newBank variable
 function firstLoop() {
     // for (let i = 0; i < 24; i++) {
     while (newBank.length < 24) {
@@ -83,23 +82,31 @@ function firstLoop() {
     console.log(newBank.length);
 }
 
-// Appends the quips into the HTML
+// For loop that appends the quips into the HTML
 function appendQuips() {
     for (let i = 0; i < 24; ++i) {
         const nbQuip = newBank[i];
-        // console.log(nbQuip);
-        const sqNum = document.getElementById(`sq${i}`);
-        // console.log(sqNum);
+        // const sqNum = document.getElementById(`sq${i}`);
         document.getElementById(`sq${i}`).innerHTML = nbQuip;
     }
 }
 
 // Connect logic to button
 function buttonClick() {
+    // ----------- Need logic to clear board on button click -----------
+    for (let i = 0; i < 24; ++i) {
+        // const nbQuip = newBank[i];
+        // console.log(nbQuip);
+        document.getElementById(`sq${i}`).innerHTML = '';
+    }
     firstLoop();
     appendQuips();
 };
 
-// buttonClick();
+// ----------- stuff -----------
+// ----------- stuff -----------
+// ----------- stuff -----------
+
+
 
 // Integrate printing to a pdf
