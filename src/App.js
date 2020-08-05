@@ -1,10 +1,9 @@
 import React from 'react';
-// import React, { useState } from 'react';
 import './App.css';
 
 function App() {
 
-    // GLOBAL VARIABLES
+    // Bank of different square categories
     const bank = [
         'Dan speaks',
         'Crew shout-out',
@@ -56,9 +55,8 @@ function App() {
         'Donald does his Neil Diamond impression',
         'Tennis talk',
     ];
-    let boardGenerated = false;
 
-    // While loop that accesses a random quip and then pushes that random quip into the newBank variable
+    // Loop that accesses a random quip and then pushes that random quip into the newBank variable
     const bankCreator = () => {
         let newBank = [];
 
@@ -80,6 +78,19 @@ function App() {
         return newBank;
     };
 
+    // Function that can clear the board (except the Free Space)
+    const clearBoard = () => {
+        // This is an array
+        const allSquares = document.getElementsByTagName('td');
+
+        // Loop through the array and clear the innerHTML of each square
+        for (let i = 0; i < allSquares.length - 1; ++i) {
+            const square = document.getElementById(`sq${i}`);
+            square.innerHTML = '';
+            square.classList.remove('marked');
+        };
+    }
+
     // For loop that appends the quips into the HTML
     const appendQuips = () => {
         const quipsArray = bankCreator();
@@ -92,34 +103,11 @@ function App() {
 
     // Function that controls the logic on the button click
     const buttonClick = () => {
-        // If boardGenerated variable is set to false, that means the board hasn't been generated yet. 
-        if (!boardGenerated) {
-            // Then we switch to true and fill the board normally.
-            boardGenerated = !boardGenerated;
-            appendQuips();
-        }
-
-        // If boardGenerated is already true, we need to clear and then fill the board.
-        else {
-
-            // This is an array
-            const allSquares = document.getElementsByTagName('td');
-
-            // Loop through the array and clear the innerHTML of each square
-            for (let i = 0; i < allSquares.length - 1; ++i) {
-                const square = document.getElementById(`sq${i}`);
-                console.log(square);
-                square.innerHTML = '';
-            };
-
-            appendQuips();
-
-        }
-
+        clearBoard();
+        appendQuips();
     };
 
-
-    // Click to check quip off board
+    // Function that selects 
     const selectSquare = square => {
         // Setting the markedSquare variable to the parameter given
         let selectedSquare = document.getElementById(`${square}`);
@@ -150,24 +138,170 @@ function App() {
             markedSquaresArray.push(squareCoordinates);
         };
 
-        // --------------------------------------------------------------
-        // --------------------------------------------------------------
-
-        // If B1 is in there look for either I1, I2, or B2
+        // Check for row wins
+        // Row1 win
         if (markedSquaresArray.indexOf('b1') !== -1) {
             if (markedSquaresArray.indexOf('i1') !== -1) {
                 if (markedSquaresArray.indexOf('n1') !== -1) {
                     if (markedSquaresArray.indexOf('g1') !== -1) {
                         if (markedSquaresArray.indexOf('o1') !== -1) {
-                            console.log('WINNER!')
+                            winAlert('Win across row 1');
                         }
                     }
                 }
-
             }
-        }
+        };
+        // Row2 win
+        if (markedSquaresArray.indexOf('b2') !== -1) {
+            if (markedSquaresArray.indexOf('i2') !== -1) {
+                if (markedSquaresArray.indexOf('n2') !== -1) {
+                    if (markedSquaresArray.indexOf('g2') !== -1) {
+                        if (markedSquaresArray.indexOf('o2') !== -1) {
+                            winAlert('Win across row 2');
+                        }
+                    }
+                }
+            }
+        };
+        // Row3 win
+        if (markedSquaresArray.indexOf('b3') !== -1) {
+            if (markedSquaresArray.indexOf('i3') !== -1) {
+                if (markedSquaresArray.indexOf('n3') !== -1) {
+                    if (markedSquaresArray.indexOf('g3') !== -1) {
+                        if (markedSquaresArray.indexOf('o3') !== -1) {
+                            winAlert('Win across row 3');
+                        }
+                    }
+                }
+            }
+        };
+        // Row4 win
+        if (markedSquaresArray.indexOf('b4') !== -1) {
+            if (markedSquaresArray.indexOf('i4') !== -1) {
+                if (markedSquaresArray.indexOf('n4') !== -1) {
+                    if (markedSquaresArray.indexOf('g4') !== -1) {
+                        if (markedSquaresArray.indexOf('o4') !== -1) {
+                            winAlert('Win across row 4');
+                        }
+                    }
+                }
+            }
+        };
+        // Row5 win
+        if (markedSquaresArray.indexOf('b5') !== -1) {
+            if (markedSquaresArray.indexOf('i5') !== -1) {
+                if (markedSquaresArray.indexOf('n5') !== -1) {
+                    if (markedSquaresArray.indexOf('g5') !== -1) {
+                        if (markedSquaresArray.indexOf('o5') !== -1) {
+                            winAlert('Win across row 5');
+                        }
+                    }
+                }
+            }
+        };
+
+        // Check for column wins
+        // ColB win
+        if (markedSquaresArray.indexOf('b1') !== -1) {
+            if (markedSquaresArray.indexOf('b2') !== -1) {
+                if (markedSquaresArray.indexOf('b3') !== -1) {
+                    if (markedSquaresArray.indexOf('b4') !== -1) {
+                        if (markedSquaresArray.indexOf('b5') !== -1) {
+                            winAlert('Win down column B');
+                        }
+                    }
+                }
+            }
+        };
+        // ColI win
+        if (markedSquaresArray.indexOf('i1') !== -1) {
+            if (markedSquaresArray.indexOf('i2') !== -1) {
+                if (markedSquaresArray.indexOf('i3') !== -1) {
+                    if (markedSquaresArray.indexOf('i4') !== -1) {
+                        if (markedSquaresArray.indexOf('i5') !== -1) {
+                            winAlert('Win down column I');
+                        }
+                    }
+                }
+            }
+        };
+        // ColN win
+        if (markedSquaresArray.indexOf('n1') !== -1) {
+            if (markedSquaresArray.indexOf('n2') !== -1) {
+                if (markedSquaresArray.indexOf('n3') !== -1) {
+                    if (markedSquaresArray.indexOf('n4') !== -1) {
+                        if (markedSquaresArray.indexOf('n5') !== -1) {
+                            winAlert('Win down column N');
+                        }
+                    }
+                }
+            }
+        };
+        // ColG win
+        if (markedSquaresArray.indexOf('g1') !== -1) {
+            if (markedSquaresArray.indexOf('g2') !== -1) {
+                if (markedSquaresArray.indexOf('g3') !== -1) {
+                    if (markedSquaresArray.indexOf('g4') !== -1) {
+                        if (markedSquaresArray.indexOf('g5') !== -1) {
+                            winAlert('Win down column G');
+                        }
+                    }
+                }
+            }
+        };
+        // ColO win
+        if (markedSquaresArray.indexOf('o1') !== -1) {
+            if (markedSquaresArray.indexOf('o2') !== -1) {
+                if (markedSquaresArray.indexOf('o3') !== -1) {
+                    if (markedSquaresArray.indexOf('o4') !== -1) {
+                        if (markedSquaresArray.indexOf('o5') !== -1) {
+                            winAlert('Win down column O');
+                        }
+                    }
+                }
+            }
+        };
+
+        // Check for diagonal wins
+        // b1-o5 Diag win
+        if (markedSquaresArray.indexOf('b1') !== -1) {
+            if (markedSquaresArray.indexOf('i2') !== -1) {
+                if (markedSquaresArray.indexOf('n3') !== -1) {
+                    if (markedSquaresArray.indexOf('g4') !== -1) {
+                        if (markedSquaresArray.indexOf('o5') !== -1) {
+                            winAlert('Win diagonally B1 to O5');
+                        }
+                    }
+                }
+            }
+        };
+        // o1-b5 Diag win
+        if (markedSquaresArray.indexOf('o1') !== -1) {
+            if (markedSquaresArray.indexOf('g2') !== -1) {
+                if (markedSquaresArray.indexOf('n3') !== -1) {
+                    if (markedSquaresArray.indexOf('i4') !== -1) {
+                        if (markedSquaresArray.indexOf('b5') !== -1) {
+                            winAlert('Win diagonally O1 to B5');
+                        }
+                    }
+                }
+            }
+        };
     };
-    // Integrate printing to a pdf
+
+
+    // Function that pops up an alert saying the user won.
+    const winAlert = (win) => {
+        if (window.confirm(`${win}! Congratulations! Would you like to play again?`)) {
+            clearBoard();
+            appendQuips();
+        };
+    };
+
+
+
+
+    // Function that integrates printing board onto a pdf
 
 
     return (
