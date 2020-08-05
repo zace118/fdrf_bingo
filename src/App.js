@@ -1,4 +1,5 @@
 import React from 'react';
+// import React, { useState } from 'react';
 import './App.css';
 
 function App() {
@@ -55,7 +56,6 @@ function App() {
         'Donald does his Neil Diamond impression',
         'Tennis talk',
     ];
-    let markedSquares = [];
     let boardGenerated = false;
 
     // While loop that accesses a random quip and then pushes that random quip into the newBank variable
@@ -78,7 +78,7 @@ function App() {
         }
 
         return newBank;
-    }
+    };
 
     // For loop that appends the quips into the HTML
     const appendQuips = () => {
@@ -88,7 +88,7 @@ function App() {
             const newBankQuip = quipsArray[i];
             document.getElementById(`sq${i}`).innerHTML = newBankQuip;
         }
-    }
+    };
 
     // Function that controls the logic on the button click
     const buttonClick = () => {
@@ -101,13 +101,12 @@ function App() {
 
         // If boardGenerated is already true, we need to clear and then fill the board.
         else {
+
             // This is an array
-            const squares = document.getElementsByTagName('td');
+            const allSquares = document.getElementsByTagName('td');
 
-
-
-            // // Loop through the array and clear the innerHTML of each square
-            for (let i = 0; i < squares.length - 1; ++i) {
+            // Loop through the array and clear the innerHTML of each square
+            for (let i = 0; i < allSquares.length - 1; ++i) {
                 const square = document.getElementById(`sq${i}`);
                 console.log(square);
                 square.innerHTML = '';
@@ -123,19 +122,51 @@ function App() {
     // Click to check quip off board
     const selectSquare = square => {
         // Setting the markedSquare variable to the parameter given
-        let markedSquare = document.getElementById(`${square}`);
+        let selectedSquare = document.getElementById(`${square}`);
 
         // Adding the class of 'marked' to the selected square
-        markedSquare.classList.toggle('marked');
+        selectedSquare.classList.toggle('marked');
 
-        // checkForWinner();
-    }
+        checkForWinner();
+    };
 
-    // Check for a win by running an if statement based on the class of 
-    function checkForWinner() {
+    // Check for a win
+    const checkForWinner = () => {
+        // An array that holds all the currently marked squares on the BINGO board.
+        let markedSquaresArray = [];
 
-    }
+        // Find all elements with the class of 'marked'
+        const markedElements = document.getElementsByClassName('marked');
 
+        // This loop is how we populate the markedSquaresArray with the current information
+        for (let i = 0; i < markedElements.length; ++i) {
+            // Giving each separate element a variable. We then split the class names into an array. 
+            const markedSquare = markedElements[i].className.split(' ');
+
+            // Accessing the above array, this is the letter-number coordinate of each square
+            const squareCoordinates = markedSquare[0];
+
+
+            markedSquaresArray.push(squareCoordinates);
+        };
+
+        // --------------------------------------------------------------
+        // --------------------------------------------------------------
+
+        // If B1 is in there look for either I1, I2, or B2
+        if (markedSquaresArray.indexOf('b1') !== -1) {
+            if (markedSquaresArray.indexOf('i1') !== -1) {
+                if (markedSquaresArray.indexOf('n1') !== -1) {
+                    if (markedSquaresArray.indexOf('g1') !== -1) {
+                        if (markedSquaresArray.indexOf('o1') !== -1) {
+                            console.log('WINNER!')
+                        }
+                    }
+                }
+
+            }
+        }
+    };
     // Integrate printing to a pdf
 
 
@@ -144,52 +175,55 @@ function App() {
             <h1 className='title'>Real Friends, Fake Doctors</h1>
             <hr />
             <h2 className='title subtitle'>Scrubs Rewatch Show with Zach and Donald
-            <h3 className='title subtitle'>The BINGO Sheet!</h3>
+            <div className='title subtitle' style={{ fontSize: '18px' }}>The BINGO Sheet!</div>
             </h2>
 
             <table className='table'>
-                <tr id='header'>
-                    <th> B </th>
-                    <th> I </th>
-                    <th> N </th>
-                    <th> G </th>
-                    <th> O </th>
-                </tr>
-                <tr id='row1'>
-                    <td id="sq0" onClick={() => selectSquare('sq0')}> </td>
-                    <td id="sq1" onClick={() => selectSquare('sq1')}> </td>
-                    <td id="sq2" onClick={() => selectSquare('sq2')}> </td>
-                    <td id="sq3" onClick={() => selectSquare('sq3')}> </td>
-                    <td id="sq4" onClick={() => selectSquare('sq4')}> </td>
-                </tr>
-                <tr id='row2'>
-                    <td id="sq5" onClick={() => selectSquare('sq5')}> </td>
-                    <td id="sq6" onClick={() => selectSquare('sq6')}> </td>
-                    <td id="sq7" onClick={() => selectSquare('sq7')}> </td>
-                    <td id="sq8" onClick={() => selectSquare('sq8')}> </td>
-                    <td id="sq9" onClick={() => selectSquare('sq9')}> </td>
-                </tr>
-                <tr id='row3'>
-                    <td id="sq10" onClick={() => selectSquare('sq10')}> </td>
-                    <td id="sq11" onClick={() => selectSquare('sq11')}> </td>
-                    <td class='marked' id="freeSpace">FREE SPACE</td>
-                    <td id="sq12" onClick={() => selectSquare('sq12')}> </td>
-                    <td id="sq13" onClick={() => selectSquare('sq13')}> </td>
-                </tr>
-                <tr id='row4'>
-                    <td id="sq14" onClick={() => selectSquare('sq14')}> </td>
-                    <td id="sq15" onClick={() => selectSquare('sq15')}> </td>
-                    <td id="sq16" onClick={() => selectSquare('sq16')}> </td>
-                    <td id="sq17" onClick={() => selectSquare('sq17')}> </td>
-                    <td id="sq18" onClick={() => selectSquare('sq18')}> </td>
-                </tr>
-                <tr id='row5'>
-                    <td id="sq19" onClick={() => selectSquare('sq19')}> </td>
-                    <td id="sq20" onClick={() => selectSquare('sq20')}> </td>
-                    <td id="sq21" onClick={() => selectSquare('sq21')}> </td>
-                    <td id="sq22" onClick={() => selectSquare('sq22')}> </td>
-                    <td id="sq23" onClick={() => selectSquare('sq23')}> </td>
-                </tr>
+                <tbody>
+                    <tr id='header'>
+                        <th> B </th>
+                        <th> I </th>
+                        <th> N </th>
+                        <th> G </th>
+                        <th> O </th>
+                    </tr>
+                    <tr id='row1'>
+                        <td className='b1' id="sq0" onClick={() => selectSquare('sq0')}> </td>
+                        <td className='i1' id="sq1" onClick={() => selectSquare('sq1')}> </td>
+                        <td className='n1' id="sq2" onClick={() => selectSquare('sq2')}> </td>
+                        <td className='g1' id="sq3" onClick={() => selectSquare('sq3')}> </td>
+                        <td className='o1' id="sq4" onClick={() => selectSquare('sq4')}> </td>
+                    </tr>
+                    <tr id='row2'>
+                        <td className='b2' id="sq5" onClick={() => selectSquare('sq5')}> </td>
+                        <td className='i2' id="sq6" onClick={() => selectSquare('sq6')}> </td>
+                        <td className='n2' id="sq7" onClick={() => selectSquare('sq7')}> </td>
+                        <td className='g2' id="sq8" onClick={() => selectSquare('sq8')}> </td>
+                        <td className='o2' id="sq9" onClick={() => selectSquare('sq9')}> </td>
+                    </tr>
+                    <tr id='row3'>
+                        <td className='b3' id="sq10" onClick={() => selectSquare('sq10')}> </td>
+                        <td className='i3' id="sq11" onClick={() => selectSquare('sq11')}> </td>
+                        <td className='n3 marked' id="freeSpace">FREE SPACE</td>
+                        <td className='g3' id="sq12" onClick={() => selectSquare('sq12')}> </td>
+                        <td className='o3' id="sq13" onClick={() => selectSquare('sq13')}> </td>
+                    </tr>
+                    <tr id='row4'>
+                        <td className='b4' id="sq14" onClick={() => selectSquare('sq14')}> </td>
+                        <td className='i4' id="sq15" onClick={() => selectSquare('sq15')}> </td>
+                        <td className='n4' id="sq16" onClick={() => selectSquare('sq16')}> </td>
+                        <td className='g4' id="sq17" onClick={() => selectSquare('sq17')}> </td>
+                        <td className='o4' id="sq18" onClick={() => selectSquare('sq18')}> </td>
+                    </tr>
+                    <tr id='row5'>
+                        <td className='b5' id="sq19" onClick={() => selectSquare('sq19')}> </td>
+                        <td className='i5' id="sq20" onClick={() => selectSquare('sq20')}> </td>
+                        <td className='n5' id="sq21" onClick={() => selectSquare('sq21')}> </td>
+                        <td className='g5' id="sq22" onClick={() => selectSquare('sq22')}> </td>
+                        <td className='o5' id="sq23" onClick={() => selectSquare('sq23')}> </td>
+                    </tr>
+
+                </tbody>
 
             </table>
 
@@ -197,6 +231,6 @@ function App() {
 
         </div>
     );
-}
+};
 
 export default App;
