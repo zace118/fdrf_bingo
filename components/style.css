@@ -57,6 +57,11 @@ tr > td {
   height: 90px;
 }
 
+.marked {
+  background-color: #f7c1d9;
+  color: white;
+}
+
 #n3 {
   background-color: #f7c1d9;
 }

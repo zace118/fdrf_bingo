@@ -48,12 +48,14 @@ const bank = [
     'Zach does his Aaron Neville impression',
     'Donald does his Aaron Neville impression',
     'Donald does his Neil Diamond impression',
+    'Tennis talk',
 ];
-let newBank = [];
-
+let markedSquares = [];
+let boardGenerated = false;
 
 // While loop that accesses a random quip and then pushes that random quip into the newBank variable
 function firstLoop() {
+    let newBank = [];
     while (newBank.length < 24) {
         // Create random integer between 0 and the length of the bank, minus 1
         const randomInt = Math.floor(Math.random() * (bank.length - 1));
@@ -69,26 +71,70 @@ function firstLoop() {
         }
     }
     console.log(newBank);
+    return newBank;
 }
 
 // For loop that appends the quips into the HTML
 function appendQuips() {
-    for (let i = 0; i < 24; ++i) {
-        const nbQuip = newBank[i];
-        // const sqNum = document.getElementById(`sq${i}`);
-        document.getElementById(`sq${i}`).innerHTML = nbQuip;
-    }
+    // const quipsArray = firstLoop();
+    // console.log(quipsArray)
+    // for (let i = 0; i < 24; ++i) {
+    //     const newBankQuip = quipsArray[i];
+    //     document.getElementById(`sq${i}`).innerHTML = newBankQuip;
+    // }
 }
 
 // Connect logic to button
 function buttonClick() {
-    // ----------- Need logic to clear board on button click -----------
-    for (let i = 0; i < 24; ++i) {
-        document.getElementById(`sq${i}`).innerHTML = '';
+    // If boardGenerated variable is set to false, that means the board hasn't been generated yet. 
+    if (!boardGenerated) {
+        // Then we switch to true and fill the board normally.
+        boardGenerated = !boardGenerated;
+        appendQuips();
     }
 
-    firstLoop();
-    appendQuips();
+    // If boardGenerated is already true, we need to clear and then fill the board.
+    else {
+        console.group();
+        console.log('else line hit');
+        console.groupEnd();
+
+
+        const squares = document.getElementsByTagName('td');
+
+        // console.log(squares);
+        squares.innerHTML = '';
+
+
+        // Loop!
+
+    }
+
+
+
+
+    // // ----------- Need logic to clear board on button click -----------
+    // for (let i = 0; i < 24; ++i) {
+    //     document.getElementById(`sq${i}`).innerHTML = '';
+    // }
+
 };
+
+
+// Click to check quip off board
+function selectSquare(square) {
+    // Setting the markedSquare variable to the parameter given
+    let markedSquare = document.getElementById(`${square}`);
+
+    // Adding the class of 'marked' to the selected square
+    markedSquare.classList.toggle('marked');
+
+    checkForWinner();
+}
+
+// Check for a win by running an if statement based on the class of 
+function checkForWinner() {
+
+}
 
 // Integrate printing to a pdf
