@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Friends, Fake Doctors BINGO Sheet</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <h1 class='title'>Real Friends, Fake Doctors</h1>
+    <hr />
+    <h2 class='title subtitle'>Scrubs Rewatch Show with Zach and Donald
+        <h3 class='title subtitle'>The BINGO Sheet!</h3>
+    </h2>
+
+    <table class='table'>
+        <tr id='header'>
+            <th> B </th>
+            <th> I </th>
+            <th> N </th>
+            <th> G </th>
+            <th> O </th>
+        </tr>
+        <tr id='row1'>
+            <td class="b1" id="sq0" onClick="selectSquare('sq0')"> </td>
+            <td class="i1" id="sq1" onClick="selectSquare('sq1')"> </td>
+            <td class="n1" id="sq2" onClick="selectSquare('sq2')"> </td>
+            <td class="g1" id="sq3" onClick="selectSquare('sq3')"> </td>
+            <td class="o1" id="sq4" onClick="selectSquare('sq4')"> </td>
+        </tr>
+        <tr id='row2'>
+            <td class="b2" id="sq5" onClick="selectSquare('sq5')"> </td>
+            <td class="i2" id="sq6" onClick="selectSquare('sq6')"> </td>
+            <td class="n2" id="sq7" onClick="selectSquare('sq7')"> </td>
+            <td class="g2" id="sq8" onClick="selectSquare('sq8')"> </td>
+            <td class="o2" id="sq9" onClick="selectSquare('sq9')"> </td>
+        </tr>
+        <tr id='row3'>
+            <td class="b3" id="sq10" onClick="selectSquare('sq10')"> </td>
+            <td class="i3" id="sq11" onClick="selectSquare('sq11')"> </td>
+            <td class="n3 marked" id="freeSpace">FREE SPACE</td>
+            <td class="g3" id="sq12" onClick="selectSquare('sq12')"> </td>
+            <td class="o3" id="sq13" onClick="selectSquare('sq13')"> </td>
+        </tr>
+        <tr id='row4'>
+            <td class="b4" id="sq14" onClick="selectSquare('sq14')"> </td>
+            <td class="i4" id="sq15" onClick="selectSquare('sq15')"> </td>
+            <td class="n4" id="sq16" onClick="selectSquare('sq16')"> </td>
+            <td class="g4" id="sq17" onClick="selectSquare('sq17')"> </td>
+            <td class="o4" id="sq18" onClick="selectSquare('sq18')"> </td>
+        </tr>
+        <tr id='row5'>
+            <td class="b5" id="sq19" onClick="selectSquare('sq19')"> </td>
+            <td class="i5" id="sq20" onClick="selectSquare('sq20')"> </td>
+            <td class="n5" id="sq21" onClick="selectSquare('sq21')"> </td>
+            <td class="g5" id="sq22" onClick="selectSquare('sq22')"> </td>
+            <td class="o5" id="sq23" onClick="selectSquare('sq23')"> </td>
+        </tr>
+
+    </table>
+
+    <button id='button' onClick='buttonClick()'> GENERATE NEW BINGO BOARD! </button>
+
+    <script src='./script.js'></script>
+</body>
+
+</html>
