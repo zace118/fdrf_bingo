@@ -309,4 +309,3 @@ const winAlert = (win) => {
 };
 
 // Function that integrates printing board onto a pdf
-
