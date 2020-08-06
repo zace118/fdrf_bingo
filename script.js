@@ -50,7 +50,7 @@ const bank = [
     'Donald does his Neil Diamond impression',
     'Tennis talk',
 ];
-
+let boardFilled = false;
 
 // Loop that accesses a random quip and then pushes that random quip into the newBank variable
 const bankCreator = () => {
@@ -100,8 +100,15 @@ const appendQuips = () => {
 
 // Function that controls the logic on the button click
 const buttonClick = () => {
-    clearBoard();
-    appendQuips();
+    if (!boardFilled) {
+        boardFilled = !boardFilled;
+        clearBoard();
+        appendQuips();
+    }
+    else {
+        clearBoard();
+        appendQuips();
+    };
 };
 
 // Function that selects 
@@ -109,8 +116,11 @@ const selectSquare = square => {
     // Setting the markedSquare variable to the parameter given
     let selectedSquare = document.getElementById(`${square}`);
 
-    // Adding the class of 'marked' to the selected square
-    selectedSquare.classList.toggle('marked');
+    // This is what prevents the user from being able to start selecting squares as soon as the page loads with the empty board
+    if (boardFilled) {
+        // Toggling the class of 'marked' to the selected square
+        selectedSquare.classList.toggle('marked');
+    }
 
     checkForWinner();
 };
