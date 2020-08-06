@@ -3,11 +3,6 @@ body {
   font-family: "Courier New", Courier, monospace;
 }
 
-.titleWrapper {
-  width: 100%;
-  max-width: 1000px;
-}
-
 .title {
   text-align: center;
   margin: 0.2em;
