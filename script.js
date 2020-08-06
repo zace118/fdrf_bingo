@@ -25,7 +25,7 @@ const bank = [
     'Donald not knowing his lines',
     'Ringtone idea',
     '"That\'s so funny"',
-    'Donald finishes the in 30 seconds exactly',
+    'Donald finishes the recap in 30 seconds exactly',
     'Donald finishes the recap in under 30 seconds',
     'Donald finishes the recap in over 30 seconds',
     'Weed talk',
@@ -35,7 +35,7 @@ const bank = [
     '"Whatcha tryina get into Adeosun??',
     'Donald references hip-hop or rap',
     'Someone forgets filming a scene',
-    'Donald complains about his IG following',
+    'Donald complains about his social media following',
     'Zach sings',
     'Zach mentions musicals',
     'Praise of The Todd\'s line(s)',
@@ -100,14 +100,18 @@ const appendQuips = () => {
 
 // Function that controls the logic on the button click
 const buttonClick = () => {
+    // If the board isn't filled, flip the boardFilled variable flag, run the clearBoard and appendQuips functions...
     if (!boardFilled) {
         boardFilled = !boardFilled;
         clearBoard();
         appendQuips();
     }
+    // Otherwise, if the board *IS* filled, ask the user to confirm they want a new board. On confirm, run the two functions
     else {
-        clearBoard();
-        appendQuips();
+        if (window.confirm('If you create a new board you will lose your current progress. Are you sure you want to create a new board?')) {
+            clearBoard();
+            appendQuips();
+        };
     };
 };
 
