@@ -156,6 +156,10 @@ const checkForWinner = () => {
             if (markedSquaresArray.indexOf('n1') !== -1) {
                 if (markedSquaresArray.indexOf('g1') !== -1) {
                     if (markedSquaresArray.indexOf('o1') !== -1) {
+                        // const x = 
+                        // x.classList.toggle('win');
+                        // const markedElements = document.getElementsByClassName('win');
+
                         winAlert('Win across row 1');
                     }
                 }
@@ -169,6 +173,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g2') !== -1) {
                     if (markedSquaresArray.indexOf('o2') !== -1) {
                         winAlert('Win across row 2');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -181,6 +187,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g3') !== -1) {
                     if (markedSquaresArray.indexOf('o3') !== -1) {
                         winAlert('Win across row 3');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -193,6 +201,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g4') !== -1) {
                     if (markedSquaresArray.indexOf('o4') !== -1) {
                         winAlert('Win across row 4');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -205,6 +215,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g5') !== -1) {
                     if (markedSquaresArray.indexOf('o5') !== -1) {
                         winAlert('Win across row 5');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -219,6 +231,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('b4') !== -1) {
                     if (markedSquaresArray.indexOf('b5') !== -1) {
                         winAlert('Win down column B');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -231,6 +245,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('i4') !== -1) {
                     if (markedSquaresArray.indexOf('i5') !== -1) {
                         winAlert('Win down column I');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -243,6 +259,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('n4') !== -1) {
                     if (markedSquaresArray.indexOf('n5') !== -1) {
                         winAlert('Win down column N');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -255,6 +273,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g4') !== -1) {
                     if (markedSquaresArray.indexOf('g5') !== -1) {
                         winAlert('Win down column G');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -267,6 +287,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('o4') !== -1) {
                     if (markedSquaresArray.indexOf('o5') !== -1) {
                         winAlert('Win down column O');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -281,6 +303,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('g4') !== -1) {
                     if (markedSquaresArray.indexOf('o5') !== -1) {
                         winAlert('Win diagonally B1 to O5');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
@@ -293,6 +317,8 @@ const checkForWinner = () => {
                 if (markedSquaresArray.indexOf('i4') !== -1) {
                     if (markedSquaresArray.indexOf('b5') !== -1) {
                         winAlert('Win diagonally O1 to B5');
+                        const markedElements = document.getElementsByClassName('win');
+
                     }
                 }
             }
