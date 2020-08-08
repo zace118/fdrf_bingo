@@ -6,9 +6,9 @@ You might also know that there is a Scrubs rewatch podcast happening right now c
 
 I created this to generate a unique BINGO board that allows you to play the game while listening to the podcast.
 
-![FDRF BINGO](/BINGOSheet.png)
+![FDRF BINGO](BINGOSheet.png)
 
-## [Future Iterations]
+## Future Iterations
 
 I am thinking about creating a way to log in and then only allowing users to generate two boards a week (one per episode, episodes are released Tuesdays and Thursdays). I was also thinking about incorporating the iHeart Radio API so I could add a player on the my site so you can listen to the episode and play BINGO on the same page.
 
